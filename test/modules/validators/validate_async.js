@@ -19,7 +19,6 @@ Tinytest.addAsync('Modules - Validators - ValidateAsync', async function(test, o
 	docValidatorAsync.validateAsync({
 		fields: 'nameA'
 	})
-		.then(console.log)
 		.catch(function (validationError) {
 		// this is not working somehow
 		// test.isNotUndefined(validationError, 'Document not validated properly');
