@@ -1,8 +1,6 @@
 import { Class, Field } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Core - Extend', function(test) {
-  reset();
-
   const Extended = Class.create({
     name: 'Extended',
     fields: {

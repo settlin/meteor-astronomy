@@ -1,11 +1,7 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+/* globals describe, it */ 
+
+import { assert } from 'chai';
+import {Class} from 'meteor/jagi:astronomy';
 import {
   Mongo
 }
@@ -14,27 +10,27 @@ from 'meteor/mongo';
 describe('Module', function() {
   describe('Storage', function() {
     describe('_isNew', function() {
-      const NestedItem = Class.create({
-        name: 'NestedItem'
+      const NestedItemIsNew = Class.create({
+        name: 'NestedItemIsNew'
       });
 
-      const Item = Class.create({
-        name: 'Item',
+      const ItemIsNew = Class.create({
+        name: 'ItemIsNew',
         collection: new Mongo.Collection(null)
       });
 
       it('should have the "_isNew" property set to "true"', () => {
-        const doc = new Item();
+        const doc = new ItemIsNew();
         assert.isTrue(doc._isNew);
       });
       it('should have the "_isNew" property set to "false"', () => {
-        let doc = new Item();
+        let doc = new ItemIsNew();
         doc.save();
-        doc = Item.findOne();
+        doc = ItemIsNew.findOne();
         assert.isFalse(doc._isNew);
       });
       it('should not have the "_isNew" property defined', () => {
-        const doc = new NestedItem();
+        const doc = new NestedItemIsNew();
         assert.isUndefined(doc._isNew);
       });
     });

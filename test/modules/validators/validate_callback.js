@@ -1,7 +1,4 @@
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+import {Class} from 'meteor/jagi:astronomy';
 
 Tinytest.addAsync(
   'Modules - Validators - ValidateWithCallback', function(test, onComplete) {
@@ -14,14 +11,14 @@ Tinytest.addAsync(
       }
     });
 
-    let docValidatorAsync = new ClassValidatorAsync();
+    let doc = new ClassValidatorAsync();
 
-    docValidatorAsync.nameA = {};
+    doc.nameA = {};
 
     // Validate with callback
-    docValidatorAsync.validate({
+    doc.validate({
       fields: 'nameA'
-    }, function(validationError) {
+		}, function (validationError) {
       test.isNotUndefined(
         validationError, 'Document not validated properly'
       );

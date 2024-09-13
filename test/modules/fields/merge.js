@@ -1,14 +1,10 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+/* globals describe, it */ 
 
-const NestedItem = Class.create({
-  name: 'NestedItem',
+import { assert } from 'chai';
+import {Class} from 'meteor/jagi:astronomy';
+
+const NestedItemMerge = Class.create({
+  name: 'NestedItemMerge',
   fields: {
     string: String,
     number: Number,
@@ -16,11 +12,11 @@ const NestedItem = Class.create({
   }
 });
 
-const Item = Class.create({
-  name: 'Item',
+const ItemMerge = Class.create({
+  name: 'ItemMerge',
   fields: {
-    one: NestedItem,
-    many: [NestedItem]
+    one: NestedItemMerge,
+    many: [NestedItemMerge]
   }
 });
 
@@ -28,7 +24,7 @@ describe('Module', function() {
   describe('Fields', function() {
     describe('Merge', function() {
       it('merges objects on setting single value', function() {
-        const item = new Item({
+        const item = new ItemMerge({
           one: {
             string: '123',
             number: 123,
@@ -60,7 +56,7 @@ describe('Module', function() {
         assert.deepEqual(item.many[0].date, new Date(2000, 0, 1));
       });
       it('merges objects on setting multiple values', function() {
-        const item = new Item({
+        const item = new ItemMerge({
           one: {
             string: '123',
             number: 123,

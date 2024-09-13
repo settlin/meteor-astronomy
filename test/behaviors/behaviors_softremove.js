@@ -1,28 +1,26 @@
 import { Class } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 
 Tinytest.add('Behaviors - Softremove', function(test) {
-  // Reset Astronomy.
-  reset();
-
-  SoftremovesA = new Mongo.Collection(null);
-  SoftremovesB = new Mongo.Collection(null);
-  SoftremovesC = new Mongo.Collection(null);
+  const SoftremovesA = new Mongo.Collection(null);
+  const SoftremovesB = new Mongo.Collection(null);
+  const SoftremovesC = new Mongo.Collection(null);
 
   SoftremovesA.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     SoftremovesA.remove(item._id);
   });
 
   SoftremovesB.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     SoftremovesB.remove(item._id);
   });
 
   SoftremovesC.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     SoftremovesC.remove(item._id);
   });
 

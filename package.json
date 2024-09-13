@@ -1,0 +1,23 @@
+{
+	"name": "meteor-astronomy",
+	"version": "1.0.0",
+	"description": "[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jagi/meteor-astronomy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)",
+	"main": "package.js",
+	"directories": {
+		"lib": "lib",
+		"test": "test"
+	},
+	"scripts": {
+		"test": "meteor test-packages ./"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"devDependencies": {
+		"@eslint/js": "^9.10.0",
+		"chai": "^4.5.0",
+		"eslint": "^9.10.0",
+		"globals": "^15.9.0"
+	}
+}

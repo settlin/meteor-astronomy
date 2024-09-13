@@ -1,8 +1,6 @@
 import { Class } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Modules - Fields - Set', function(test) {
-  reset();
-
   let SetClassNested = Class.create({
     name: 'SetClassNested',
     fields: {

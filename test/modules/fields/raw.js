@@ -1,17 +1,13 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+/* globals describe, it */ 
+
+import { assert } from 'chai';
+import {Class} from 'meteor/jagi:astronomy';
 
 describe('Module', function() {
   describe('Fields', function() {
     describe('Raw', function() {
-      const NestedItem = Class.create({
-        name: 'NestedItem',
+      const NestedItemRaw = Class.create({
+        name: 'NestedItemRaw',
         fields: {
           string: {
             type: String
@@ -19,14 +15,14 @@ describe('Module', function() {
         }
       });
 
-      const Item = Class.create({
-        name: 'Item',
+      const ItemRaw = Class.create({
+        name: 'ItemRaw',
         fields: {
           one: {
-            type: NestedItem
+            type: NestedItemRaw
           },
           many: {
-            type: [NestedItem]
+            type: [NestedItemRaw]
           },
           undefined: {
             type: String
@@ -42,12 +38,12 @@ describe('Module', function() {
         }
       });
 
-      const doc = new Item({
-        one: new NestedItem({
+      const doc = new ItemRaw({
+        one: new NestedItemRaw({
           string: 'abc'
         }),
         many: [
-          new NestedItem({
+          new NestedItemRaw({
             string: 'abc'
           })
         ],

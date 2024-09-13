@@ -1,8 +1,7 @@
 import { Class } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 
 Tinytest.add('Core - State', function(test) {
-  reset();
-
   const States = new Mongo.Collection(null);
 
   const State = Class.create({

@@ -1,8 +1,7 @@
 import { Class } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 
-Tinytest.add('Modules - Storage - Init', function(test) {
-  reset();
-
+Tinytest.add('Modules - Storage - Init', function () {
   const NestedStorage = Class.create({
     name: 'NestedStorage',
     fields: {
@@ -23,6 +22,7 @@ Tinytest.add('Modules - Storage - Init', function(test) {
 
   const Storages = new Mongo.Collection(null);
 
+  // eslint-disable-next-line no-unused-vars
   const Storage = Class.create({
     name: 'Storage',
     collection: Storages,

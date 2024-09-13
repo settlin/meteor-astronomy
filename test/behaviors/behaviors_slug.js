@@ -1,22 +1,20 @@
 import { Class } from 'meteor/jagi:astronomy';
 import _contains from 'lodash/contains';
+import { Mongo } from 'meteor/mongo';
 
 Tinytest.add('Behaviors - Slug', function(test) {
-  // Reset Astronomy.
-  reset();
-
   var SlugsA = new Mongo.Collection(null);
   var SlugsB = new Mongo.Collection(null);
 
   SlugsA.find({}, {
     transform: null
-  }).forEach(function(slug) {
+  }).fetch().forEach(function(slug) {
     SlugsA.remove(slug._id);
   });
 
   SlugsB.find({}, {
     transform: null
-  }).forEach(function(slug) {
+  }).fetch().forEach(function(slug) {
     SlugsB.remove(slug._id);
   });
 
@@ -83,7 +81,7 @@ Tinytest.add('Behaviors - Slug', function(test) {
   test.isNotUndefined(slugB1.get('slugged'),
     'The name of a field for the slug storage should be "slugged"'
   );
-  test.isTrue(typeof slugB1.get('slugged') === 'string'),
+  test.isTrue(typeof slugB1.get('slugged') === 'string',
     'The slug should be created from the value of the "title" field'
   );
   test.isTrue(_contains(slugB1.get('slugged'), '_'),
@@ -96,7 +94,7 @@ Tinytest.add('Behaviors - Slug', function(test) {
     'It should be possible to update a slug"'
   );
 
-  slugB2 = new SlugB();
+  var slugB2 = new SlugB();
   slugB2.set('title', 'Slug2 ' + diacritics);
   slugB2.save();
   test.equal(slugB2.get('slugged'), 'slug2_' + expected,

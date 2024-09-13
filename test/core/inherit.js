@@ -1,8 +1,6 @@
 import { Class, Field } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Core - Inherit', function(test) {
-  reset();
-
   const Parent = Class.create({
     name: 'Parent',
     fields: {

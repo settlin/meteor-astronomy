@@ -1,16 +1,16 @@
 Package.describe({
   name: "jagi:astronomy",
-  version: "2.7.3",
+  version: "2.8.0",
   summary: "Model layer for Meteor",
   git: "https://github.com/jagi/meteor-astronomy.git"
 });
 
 Npm.depends({
-  lodash: "4.17.11"
+	lodash: "4.17.11",
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom("1.3");
+  api.versionsFrom("2.12");
 
   api.use(
     [
@@ -21,7 +21,6 @@ Package.onUse(function(api) {
       "check",
       "minimongo",
       "ejson",
-      "mdg:validation-error@0.5.1"
     ],
     ["client", "server"]
   );
@@ -34,25 +33,28 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use(
     [
-      "practicalmeteor:mocha",
+      "meteortesting:mocha",
       "tinytest",
       "ecmascript",
       "es5-shim",
       "insecure",
       "mongo",
       "ejson",
-      "jagi:astronomy@2.5.8"
+      "jagi:astronomy"
     ],
     ["client", "server"]
   );
 
   api.addFiles("test/utils.js", ["client", "server"]);
-  // Core.
+  // Modules - Methods.
+	api.addFiles(["test/modules/helpers/definition.js"], ["client", "server"]);
+	// Core.
   api.addFiles(
     [
       "test/core/inherit.js",
       "test/core/extend.js",
       "test/core/state.js",
+      "test/core/state_async.js",
       "test/core/ejson.js"
     ],
     ["client", "server"]
@@ -60,7 +62,10 @@ Package.onTest(function(api) {
   // Modules.
   // Modules - Behaviors.
   api.addFiles(
-    ["test/modules/behaviors/create.js", "test/modules/behaviors/apply.js"],
+		[
+			"test/modules/behaviors/create.js",
+			"test/modules/behaviors/apply.js"
+		],
     ["client", "server"]
   );
   // Modules - Validators.
@@ -69,6 +74,7 @@ Package.onTest(function(api) {
       "test/modules/validators/create.js",
       "test/modules/validators/apply.js",
       "test/modules/validators/validate.js",
+      "test/modules/validators/validate_async.js",
       "test/modules/validators/validate_callback.js"
     ],
     ["client", "server"]
@@ -87,7 +93,15 @@ Package.onTest(function(api) {
       "test/modules/storage/class_update.js",
       "test/modules/storage/class_remove.js",
       "test/modules/storage/reload.js",
-      "test/modules/storage/copy.js"
+      "test/modules/storage/copy.js",
+      "test/modules/storage/document_insert_async.js",
+      "test/modules/storage/document_update_async.js",
+      "test/modules/storage/document_remove_async.js",
+      "test/modules/storage/class_insert_async.js",
+      "test/modules/storage/class_update_async.js",
+      "test/modules/storage/class_remove_async.js",
+      "test/modules/storage/reload_async.js",
+      "test/modules/storage/copy_async.js"
     ],
     ["client", "server"]
   );
@@ -122,6 +136,4 @@ Package.onTest(function(api) {
     ],
     "server"
   );
-  // Modules - Methods.
-  api.addFiles(["test/modules/helpers/definition.js"], ["client", "server"]);
 });

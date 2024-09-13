@@ -1,9 +1,6 @@
 import { Class } from 'meteor/jagi:astronomy';
 
-Tinytest.add('Modules - Helpers - Definition', function(test) {
-  // Reset Astronomy.
-  reset();
-
+Tinytest.add('Modules - Helpers - Definition', function (test) {
   const Helper = Class.create({
     name: 'Helper',
     helpers: {

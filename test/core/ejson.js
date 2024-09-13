@@ -1,8 +1,7 @@
 import { Class } from 'meteor/jagi:astronomy';
+import {EJSON} from 'meteor/ejson';
 
 Tinytest.add('Core - EJSON', function(test) {
-  reset();
-
   let NestedEJSON = Class.create({
     name: 'NestedEJSON',
     fields: {

@@ -1,5 +1,8 @@
-import { assert } from 'meteor/practicalmeteor:chai';
-import { Class, Enum } from 'meteor/jagi:astronomy';
+/* eslint-env mocha */
+/* globals describe, it */ 
+
+import { assert } from 'chai';
+import { Enum } from 'meteor/jagi:astronomy';
 
 const StatusA = Enum.create({
   name: 'StatusA',

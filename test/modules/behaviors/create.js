@@ -1,8 +1,6 @@
 import { Behavior } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Modules - Behaviors - Create', function(test) {
-	reset();
-
 	let CustomBehavior = Behavior.create({
 		name: 'custom',
 		options: {
@@ -25,7 +23,7 @@ Tinytest.add('Modules - Behaviors - Create', function(test) {
 	});
 
   test.isTrue(
-		Behavior.prototype.isPrototypeOf(CustomBehavior.prototype),
+		Object.prototype.isPrototypeOf.call(Behavior.prototype, CustomBehavior.prototype),
     'Behavior not created'
   );
 });

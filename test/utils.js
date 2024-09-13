@@ -1,22 +1,22 @@
-import _forOwn from 'lodash/forOwn';
 import { Class, Behavior } from 'meteor/jagi:astronomy';
+import { Meteor } from 'meteor/meteor';
 
-resetDatabase = function() {
-  _forOwn(Class.classes, (Class) => {
+export const resetDatabase = function() {
+	Object.entries(Class.classes).map(([, Class]) => {
     let Collection = Class.getCollection();
     if (!Collection) {
       return;
     }
 
     // Remove documents from the collection.
-    Collection.find().forEach((doc) => {
+    Collection.find().fetch().forEach((doc) => {
       Collection.remove(doc._id);
     });
   });
 };
 
-resetMethods = function() {
-  _forOwn(Class.classes, (Class) => {
+export const resetMethods = function() {
+	Object.entries(Class.classes).map(([, Class]) => {
     let Collection = Class.getCollection();
     if (!Collection) {
       return;
@@ -35,12 +35,41 @@ resetMethods = function() {
 
     delete methodHandlers['/' + Collection._name + '/insert'];
     delete methodHandlers['/' + Collection._name + '/update'];
-    delete methodHandlers['/' + Collection._name + '/remove'];
+		delete methodHandlers['/' + Collection._name + '/remove'];
+		delete methodHandlers['/' + Collection._name + '/insertAsync'];
+    delete methodHandlers['/' + Collection._name + '/updateAsync'];
+    delete methodHandlers['/' + Collection._name + '/removeAsync'];
   });
 };
 
-reset = function() {
+export const reset = function() {
   resetDatabase();
+  resetMethods();
+
+	// if done before calling any class constructor - causes error
+	// may happen esp. if reset is called after a client method call
+	// as it may take time for the call to execute on server and in the meanwhile this line executes
+	Class.classes = {};
+  Behavior.behaviors = {};
+};
+
+export const resetDatabaseAsync = async function() {
+	const all = Object.entries(Class.classes).map(async ([, Class]) => {
+    let Collection = Class.getCollection();
+    if (!Collection) {
+      return;
+		}
+		
+    // Remove documents from the collection.
+		return await Promise.all(await Collection.find().mapAsync(async (doc) =>
+			await Collection.removeAsync(doc._id)
+    ));
+	});
+	await Promise.all(all);
+};
+
+export const resetAsync = async function() {
+  await resetDatabaseAsync();
   resetMethods();
 
   Class.classes = {};

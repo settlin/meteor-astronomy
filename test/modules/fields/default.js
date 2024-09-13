@@ -1,11 +1,7 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+/* globals describe, it */ 
+
+import { assert } from 'chai';
+import {Class} from 'meteor/jagi:astronomy';
 
 const DefaultNested = Class.create({
   name: 'DefaultNested',

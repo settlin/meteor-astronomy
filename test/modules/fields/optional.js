@@ -1,8 +1,6 @@
 import { Class, ValidationError } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Modules - Fields - Optional', function(test) {
-  reset();
-
   // Define simple class to work with.
   const Optional = Class.create({
     name: 'Optional',
@@ -13,7 +11,7 @@ Tinytest.add('Modules - Fields - Optional', function(test) {
       },
       resolveOptional: {
         type: String,
-        optional(doc) {
+        optional() {
           return true;
         },
       },
@@ -29,10 +27,10 @@ Tinytest.add('Modules - Fields - Optional', function(test) {
   try {
     optional.validate({
       fields: ['optional'],
-    });
+		});
   }
-  catch (err) {
-    error = err;
+	catch (err) {
+		error = err;
   }
   finally {
     test.isUndefined(

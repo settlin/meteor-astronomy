@@ -1,8 +1,6 @@
 import { Validator, Validators } from 'meteor/jagi:astronomy';
 
 Tinytest.add('Modules - Validators - Create', function(test) {
-	reset();
-
 	let CustomValidator = Validator.create({
 	  name: 'custom',
 	  isValid({ value, param }) {

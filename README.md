@@ -31,7 +31,7 @@ I've decided to start [Patreon](https://www.patreon.com/jagi) page. If you enjoy
 When fetching documents from Mongo collections, you get plain JavaScript objects without any logic. You have to validate values of objects' properties, check what fields have changed, save only modified fields, transform values coming from forms, in every place you are playing with a document; a lot of things to do. Wouldn't it be great if you could define some simple rules and leave everything else to framework? It's actually possible thanks to Astronomy. But first let's take a look at how your code would look like without using Astronomy.
 
 ```js
-var post = Posts.findOne(id);
+const post = await Post.findOneAsync(id);
 // Assign values manually instead doing it automatically.
 post.createdAt = new Date();
 post.userId = Meteor.userId();
@@ -61,7 +61,7 @@ With Astronomy and defined schema your code would look like follows:
 ```js
 // Notice that we call the "findOne" method
 // from the "Post" class not from the "Posts" collection.
-var post = Post.findOne(id);
+const post = await Post.findOneAsync(id);
 // Auto convert a string input value to a number.
 post.title = tmpl.find('input[name=title]').value;
 post.publishedAt = new Date(tmpl.find('input[name=publishedAt]').value);

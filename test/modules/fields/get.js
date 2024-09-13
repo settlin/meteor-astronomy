@@ -1,17 +1,13 @@
-import {
-  assert
-}
-from 'meteor/practicalmeteor:chai';
-import {
-  Class
-}
-from 'meteor/jagi:astronomy';
+/* globals describe, it */ 
+
+import { assert } from 'chai';
+import {Class} from 'meteor/jagi:astronomy';
 
 describe('Module', function() {
   describe('Fields', function() {
     describe('Get', function() {
-      const NestedItem = Class.create({
-        name: 'NestedItem',
+      const NestedItemGet = Class.create({
+        name: 'NestedItemGet',
         fields: {
           string: {
             type: String
@@ -19,14 +15,14 @@ describe('Module', function() {
         }
       });
 
-      const Item = Class.create({
-        name: 'Item',
+      const ItemGet = Class.create({
+        name: 'ItemGet',
         fields: {
           one: {
-            type: NestedItem
+            type: NestedItemGet
           },
           many: {
-            type: [NestedItem]
+            type: [NestedItemGet]
           },
           undefined: {
             type: String
@@ -42,12 +38,12 @@ describe('Module', function() {
         }
       });
 
-      const doc = new Item({
-        one: new NestedItem({
+      const doc = new ItemGet({
+        one: new NestedItemGet({
           string: 'abc'
         }),
         many: [
-          new NestedItem({
+          new NestedItemGet({
             string: 'abc'
           })
         ],
@@ -56,7 +52,7 @@ describe('Module', function() {
       });
 
       it('retrieves single value', () => {
-        assert.deepEqual(doc.get('one'), new NestedItem({
+        assert.deepEqual(doc.get('one'), new NestedItemGet({
           string: 'abc'
         }));
       });
@@ -64,18 +60,18 @@ describe('Module', function() {
         assert.deepEqual(doc.get('one.string'), 'abc');
       });
       it('retrieves value of the list field', () => {
-        assert.deepEqual(doc.get('many'), [new NestedItem({
+        assert.deepEqual(doc.get('many'), [new NestedItemGet({
           string: 'abc'
         })]);
       });
       it('retrieves value of the element in the list field', () => {
-        assert.deepEqual(doc.get('many.0'), new NestedItem({
+        assert.deepEqual(doc.get('many.0'), new NestedItemGet({
           string: 'abc'
         }));
       });
       it('retrieves multiple single values', () => {
         assert.deepEqual(doc.get(['one', 'immutable', 'transient']), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           }),
           immutable: 'immutable',
@@ -86,7 +82,7 @@ describe('Module', function() {
         assert.deepEqual(doc.get(['one', 'immutable', 'transient'], {
           immutable: false
         }), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           }),
           immutable: undefined,
@@ -97,7 +93,7 @@ describe('Module', function() {
         assert.deepEqual(doc.get(['one', 'immutable', 'transient'], {
           transient: false
         }), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           }),
           immutable: 'immutable',
@@ -108,7 +104,7 @@ describe('Module', function() {
         assert.deepEqual(doc.get(['one', 'undefined'], {
           undefined: false
         }), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           })
         });
@@ -119,7 +115,7 @@ describe('Module', function() {
           transient: false,
           undefined: false
         }), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           })
         });
@@ -131,10 +127,10 @@ describe('Module', function() {
       });
       it('retrieves all values', () => {
         assert.deepEqual(doc.get(), {
-          one: new NestedItem({
+          one: new NestedItemGet({
             string: 'abc'
           }),
-          many: [new NestedItem({
+          many: [new NestedItemGet({
             string: 'abc'
           })],
           undefined: undefined,

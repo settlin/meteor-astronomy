@@ -1,8 +1,9 @@
 import { Class, ValidationError } from 'meteor/jagi:astronomy';
+import {Meteor} from 'meteor/meteor';
 
 Tinytest.add('Modules - Validators - Validate', function(test) {
-  const ClassValidator = Class.create({
-    name: 'ClassValidator',
+  const ClassValidator1 = Class.create({
+    name: 'ClassValidator1',
     fields: {
       nameA: {
         type: String,
@@ -21,7 +22,7 @@ Tinytest.add('Modules - Validators - Validate', function(test) {
     }
   });
 
-  let docValidator = new ClassValidator();
+  let docValidator = new ClassValidator1();
 
   // Stop on the first error.
   docValidator.nameA = 'abc';
@@ -51,7 +52,7 @@ Tinytest.add('Modules - Validators - Validate', function(test) {
   try {
     docValidator.validate();
   }
-  catch (e) {
+	catch (e) {
     test.instanceOf(
       e, Meteor.Error,
       'Should throw Meteor.Error'
@@ -79,7 +80,7 @@ Tinytest.add('Modules - Validators - Validate', function(test) {
       stopOnFirstError: false
     });
   }
-  catch (e) {
+	catch (e) {
     test.instanceOf(
       e, Meteor.Error,
       'Should throw Meteor.Error'

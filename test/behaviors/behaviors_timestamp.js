@@ -1,28 +1,27 @@
 import { Class } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
+import {Meteor} from 'meteor/meteor';
 
 Tinytest.addAsync('Behaviors - Timestamp', function(test, next) {
-  // Reset Astronomy.
-  reset();
-
   var TimestampsA = new Mongo.Collection(null);
   var TimestampsB = new Mongo.Collection(null);
   var TimestampsC = new Mongo.Collection(null);
 
   TimestampsA.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     TimestampsA.remove(item._id);
   });
 
   TimestampsB.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     TimestampsB.remove(item._id);
   });
 
   TimestampsC.find({}, {
     transform: null
-  }).forEach(function(item) {
+  }).fetch().forEach(function(item) {
     TimestampsC.remove(item._id);
   });
 

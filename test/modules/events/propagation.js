@@ -1,9 +1,7 @@
 import { Class } from 'meteor/jagi:astronomy';
+import { Mongo } from 'meteor/mongo';
 
 Tinytest.add('Modules - Events - Propagation', function(test) {
-  // Reset Astronomy.
-  reset();
-
   let expectedEvents = [];
   let executedEvents = [];
 
@@ -11,7 +9,7 @@ Tinytest.add('Modules - Events - Propagation', function(test) {
     name: 'PropagationNestedEvent',
     events: {
       beforeSave: [
-        function(e) {
+        function() {
           executedEvents.push('PNE.beforeSave1');
         }
       ]
