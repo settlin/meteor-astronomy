@@ -25,7 +25,7 @@ Tinytest.addAsync('Modules - Storage - Copy async', async function(test) {
     date: new Date(2000, 0, 1, 0, 0, 0, 0),
     immutable: 'immutable',
   });
-  storage.save();
+  await storage.saveAsync();
 
   let clone = await storage.copyAsync();
   test.isNull(clone._id,

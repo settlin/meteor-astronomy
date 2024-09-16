@@ -61,17 +61,17 @@ Tinytest.add('Modules - Storage - Type field Async', async function(test) {
       })
     ]
   });
-  vehicle.save();
+  await vehicle.saveAsync();
 
   let plane = new Plane({
     name: 'Plane'
   });
-  plane.save();
+  await plane.saveAsync();
 
   let car = new Car({
     name: 'Car'
   });
-  car.save();
+  await car.saveAsync();
 
   let vehicles = await Vehicle.find().fetchAsync();
   test.equal(vehicles.length, 3,

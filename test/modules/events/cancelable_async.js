@@ -1,7 +1,7 @@
 import { Class } from 'meteor/jagi:astronomy';
 import { Mongo } from 'meteor/mongo';
 
-Tinytest.add('Modules - Events - Cancelable', function(test) {
+Tinytest.addAsync('Modules - Events - Cancelable Async', async function(test) {
   let CancelableNestedEvent = Class.create({
     name: 'CancelableNestedEvent',
     events: {
@@ -57,8 +57,8 @@ Tinytest.add('Modules - Events - Cancelable', function(test) {
   event.prevent = false;
   event.preventNested = true;
   test.throws(
-    function() {
-      event.save();
+    async function() {
+      await event.saveAsync();
     },
     'Operation prevented [prevented]'
   );
@@ -67,8 +67,8 @@ Tinytest.add('Modules - Events - Cancelable', function(test) {
   event.prevent = true;
   event.preventNested = false;
   test.throws(
-    function() {
-      event.save();
+    async function() {
+      await event.saveAsync();
     },
     'Operation prevented [prevented]'
   );
@@ -76,7 +76,7 @@ Tinytest.add('Modules - Events - Cancelable', function(test) {
   // Do not prevent.
   event.prevent = false;
   event.preventNested = false;
-  event.save();
+  await event.saveAsync();
   test.isNotNull(event._id,
     'Execution of the operation should not be prevented'
   );

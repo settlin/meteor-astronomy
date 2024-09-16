@@ -95,7 +95,7 @@ Tinytest.add('Behaviors - Slug Async', async function(test) {
   );
 
   slugB1.set('title', 'Slug2 ' + diacritics);
-  slugB1.save();
+  await slugB1.saveAsync();
   test.equal(slugB1.get('slugged'), 'slug2_' + expected,
     'It should be possible to update a slug"'
   );

@@ -1,8 +1,8 @@
 Package.describe({
-  name: "jagi:astronomy",
+  name: "settlin:astronomy",
   version: "2.8.0",
   summary: "Model layer for Meteor",
-  git: "https://github.com/jagi/meteor-astronomy.git"
+  git: "https://github.com/settlin/meteor-astronomy.git"
 });
 
 Npm.depends({
@@ -97,6 +97,7 @@ Package.onTest(function(api) {
       "test/modules/storage/document_insert_async.js",
       "test/modules/storage/document_update_async.js",
       "test/modules/storage/document_remove_async.js",
+      "test/modules/storage/document_getModifier_async.js",
       "test/modules/storage/class_insert_async.js",
       "test/modules/storage/class_update_async.js",
       "test/modules/storage/class_remove_async.js",
@@ -110,7 +111,10 @@ Package.onTest(function(api) {
     [
       "test/modules/events/order.js",
       "test/modules/events/propagation.js",
-      "test/modules/events/cancelable.js"
+      "test/modules/events/cancelable.js",
+      // "test/modules/events/order_async.js",
+      // "test/modules/events/propagation_async.js",
+      // "test/modules/events/cancelable_async.js",
     ],
     ["client", "server"]
   );

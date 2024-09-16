@@ -1,7 +1,7 @@
 import { Class } from "meteor/jagi:astronomy";
 import { Mongo } from 'meteor/mongo';
 
-Tinytest.add("Modules - Events - Order", function(test) {
+Tinytest.addAsync("Modules - Events - Order Async", async function(test) {
   let executedEvents = [];
   let expectedEvents = [];
 
@@ -119,7 +119,7 @@ Tinytest.add("Modules - Events - Order", function(test) {
     "ONE.afterSave",
     "ONE.afterSave",
   ];
-  event.save();
+  await event.saveAsync();
   test.equal(
     executedEvents,
     expectedEvents,
@@ -142,7 +142,7 @@ Tinytest.add("Modules - Events - Order", function(test) {
     "ONE.afterInit",
     "OE.afterInit",
   ];
-  event.save();
+  await event.saveAsync();
   test.equal(
     executedEvents,
     expectedEvents,
@@ -178,7 +178,7 @@ Tinytest.add("Modules - Events - Order", function(test) {
     "ONE.afterSave",
   ];
   event.string = "abc";
-  event.save();
+  await event.saveAsync();
   test.equal(
     executedEvents,
     expectedEvents,
