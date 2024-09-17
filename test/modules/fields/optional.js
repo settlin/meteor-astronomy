@@ -1,4 +1,4 @@
-import { Class, ValidationError } from 'meteor/jagi:astronomy';
+import { Class, ValidationError } from 'meteor/settlin:astronomy';
 
 Tinytest.add('Modules - Fields - Optional', function(test) {
   reset();

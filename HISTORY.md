@@ -1,7 +1,7 @@
 # [2.7.1](/releases/tag/2.7.1) (2019-01-05)
 - Fix #671 by introducing several logging flags:
 ```js
-import { config } from "meteor/jagi:astronomy";
+import { config } from "meteor/settlin:astronomy";
 
 config.logs.deprecation = false; // Turn off deprecation warnings.
 config.logs.nonExistingField = false; // Turn off warnings about non existing fields.
@@ -113,7 +113,7 @@ user.set('phones.0', '123456789', {
 - Union type
 
 ``` js
-import { Class, Union } from 'meteor/jagi:astronomy';
+import { Class, Union } from 'meteor/settlin:astronomy';
 
 const StringOrNumber = Union.create({
   name: 'StringOrNumber',
