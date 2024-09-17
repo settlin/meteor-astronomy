@@ -6,6 +6,10 @@
 
 The [Astronomy](https://atmospherejs.com/jagi/astronomy) package introduces the [Model Layer](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) into Meteor applications. It can also be named the Object Document Mapping system (ODM) or for people coming from relational database environments the Object-Relational Mapping system (ORM). Astronomy extends MongoDB documents with functionalities defined in a schema.
 
+## Towards Meteor 3.0
+
+Forked from `jagi:astronomy` to work with Meteor 2.x async methods. Once tested thoroughly will create a new version removing the sync methods and fibers altogether
+
 ## Documentation
 
 Astronomy documentation can be found [here](http://jagi.github.io/meteor-astronomy/).
