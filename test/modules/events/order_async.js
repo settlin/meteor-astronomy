@@ -1,6 +1,10 @@
 import { Class } from "meteor/settlin:astronomy";
 import { Mongo } from 'meteor/mongo';
 
+function delay(t, val) {
+    return new Promise(resolve => setTimeout(resolve, t, val));
+}
+
 Tinytest.addAsync("Modules - Events - Order Async", async function(test) {
   let executedEvents = [];
   let expectedEvents = [];
@@ -14,22 +18,28 @@ Tinytest.addAsync("Modules - Events - Order Async", async function(test) {
       afterInit: function() {
         executedEvents.push("ONE.afterInit");
       },
-      beforeSave: function() {
+			beforeSave: async function () {
+				await delay(100);
         executedEvents.push("ONE.beforeSave");
       },
-      afterSave: function() {
+      afterSave: async function () {
+				await delay(20);
         executedEvents.push("ONE.afterSave");
       },
-      beforeInsert: function() {
+      beforeInsert: async function () {
+				await delay(50);
         executedEvents.push("ONE.beforeInsert");
       },
-      afterInsert: function() {
+      afterInsert: async function () {
+				await delay(10);
         executedEvents.push("ONE.afterInsert");
       },
-      beforeUpdate: function() {
+      beforeUpdate: async function () {
+				await delay(150);
         executedEvents.push("ONE.beforeUpdate");
       },
-      afterUpdate: function() {
+      afterUpdate: async function () {
+				await delay(30);
         executedEvents.push("ONE.afterUpdate");
       },
     },

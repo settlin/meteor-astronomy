@@ -8,7 +8,13 @@ The [Astronomy](https://atmospherejs.com/jagi/astronomy) package introduces the 
 
 ## Towards Meteor 3.0
 
-Forked from `jagi:astronomy` to work with Meteor 2.x async methods. Once tested thoroughly will create a new version removing the sync methods and fibers altogether
+Forked from `settlin:astronomy` to work with Meteor 2.x async methods. Once tested thoroughly will create a new version removing the sync methods and fibers altogether
+
+## Migrating to async Meteor 2.0
+
+1. Update the methods to their Async versions
+2. The events should work both synchornously and asynchronously
+3. `beforeInit`, `afterInit`, `toJSONValue`, `fromJSONValue` should ideally not be asynchronous as they are being used in constructors. If they are, you might need to refactor your code.
 
 ## Documentation
 
