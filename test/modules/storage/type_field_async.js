@@ -1,7 +1,7 @@
 import {
   Class
 }
-	from 'meteor/jagi:astronomy';
+	from 'meteor/settlin:astronomy';
 import {Mongo} from 'meteor/mongo';
 
 Tinytest.add('Modules - Storage - Type field Async', async function(test) {

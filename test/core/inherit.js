@@ -1,4 +1,4 @@
-import { Class, Field } from 'meteor/jagi:astronomy';
+import { Class, Field } from 'meteor/settlin:astronomy';
 
 Tinytest.add('Core - Inherit', function(test) {
   const Parent = Class.create({

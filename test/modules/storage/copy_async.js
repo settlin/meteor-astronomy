@@ -1,5 +1,5 @@
 import _omit from 'lodash/omit';
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/settlin:astronomy';
 import { resetDatabase } from '../../utils';
 
 Tinytest.addAsync('Modules - Storage - Copy async', async function(test) {

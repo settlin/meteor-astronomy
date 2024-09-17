@@ -1,4 +1,4 @@
-import {Class} from 'meteor/jagi:astronomy';
+import {Class} from 'meteor/settlin:astronomy';
 import { expect } from 'chai';
 import {Meteor} from 'meteor/meteor';
 

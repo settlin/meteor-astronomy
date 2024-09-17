@@ -17,7 +17,7 @@ You can learn more about Astronomy by watching video tutorials that I'm creating
 ## Installation
 
 ```sh
-$ meteor add jagi:astronomy
+$ meteor add settlin:astronomy
 ```
 
 ## Support Astronomy development
@@ -76,7 +76,7 @@ For clarity, here is a sample schema that allows that. May seem to be a lot of
 code but have in mind that you write it only once.
 
 ```js
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/settlin:astronomy';
 
 const Posts = new Mongo.Collection('posts');
 const Post = Class.create({

@@ -1,4 +1,4 @@
-import { Class, Behavior } from 'meteor/jagi:astronomy';
+import { Class, Behavior } from 'meteor/settlin:astronomy';
 import { Meteor } from 'meteor/meteor';
 
 export const resetDatabase = function() {

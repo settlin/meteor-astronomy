@@ -2,7 +2,7 @@
 /* globals describe, it */ 
 
 import { assert } from 'chai';
-import { Enum } from 'meteor/jagi:astronomy';
+import { Enum } from 'meteor/settlin:astronomy';
 
 const StatusA = Enum.create({
   name: 'StatusA',

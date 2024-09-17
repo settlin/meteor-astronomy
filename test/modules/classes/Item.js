@@ -1,4 +1,4 @@
-import {Class} from 'meteor/jagi:astronomy';
+import {Class} from 'meteor/settlin:astronomy';
 import { NestedItem } from './NestedItem';
 
 export const Item = Class.create({

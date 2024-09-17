@@ -1,4 +1,4 @@
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/settlin:astronomy';
 import {EJSON} from 'meteor/ejson';
 
 Tinytest.add('Core - EJSON', function(test) {

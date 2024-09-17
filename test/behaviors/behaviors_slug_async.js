@@ -1,4 +1,4 @@
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/settlin:astronomy';
 import _contains from 'lodash/contains';
 import { resetAsync } from '../utils';
 import {Mongo} from 'meteor/mongo';

@@ -40,7 +40,7 @@ Package.onTest(function(api) {
       "insecure",
       "mongo",
       "ejson",
-      "jagi:astronomy"
+      "settlin:astronomy"
     ],
     ["client", "server"]
   );

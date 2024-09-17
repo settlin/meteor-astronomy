@@ -1,7 +1,7 @@
 /* globals describe, it */ 
 
 import { assert } from 'chai';
-import {Class} from 'meteor/jagi:astronomy';
+import {Class} from 'meteor/settlin:astronomy';
 
 describe('Module', function() {
   describe('Fields', function() {

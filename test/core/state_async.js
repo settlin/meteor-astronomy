@@ -1,4 +1,4 @@
-import { Class } from 'meteor/jagi:astronomy';
+import { Class } from 'meteor/settlin:astronomy';
 import { Mongo } from 'meteor/mongo';
 import { resetAsync } from '../utils';
 
