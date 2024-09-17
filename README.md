@@ -13,6 +13,8 @@ Forked from `jagi:astronomy` to work with Meteor 2.x async methods. Once tested 
 ## Documentation
 
 Astronomy documentation can be found [here](http://jagi.github.io/meteor-astronomy/).
+It has not been updated for Meteor 2.x/3.0.
+But for now, there is an async method for every sync method we have. eg: saveAsync, insertAsync, updateAsync, getModifierAsync etc.
 
 ## Tutorials
 
@@ -24,11 +26,11 @@ You can learn more about Astronomy by watching video tutorials that I'm creating
 $ meteor add settlin:astronomy
 ```
 
-## Support Astronomy development
+<!-- ## Support Astronomy development
 
 [<img src="https://www.patreon.com/images/patreon_navigation_logo_mini_orange.png" width="100" />](https://www.patreon.com/jagi)
 
-I've decided to start [Patreon](https://www.patreon.com/jagi) page. If you enjoy using Astronomy and want to support development of future versions, then any donation will be welcome :).
+I've decided to start [Patreon](https://www.patreon.com/jagi) page. If you enjoy using Astronomy and want to support development of future versions, then any donation will be welcome :). -->
 
 ## Introduction
 
@@ -103,11 +105,11 @@ const Post = Class.create({
 });
 ```
 
-## Supporters
+<!-- ## Supporters
 
-[<img src="http://jagi.github.io/meteor-astronomy/images/usefulio.png" />](http://useful.io/)
+[<img src="http://jagi.github.io/meteor-astronomy/images/usefulio.png" />](http://useful.io/) -->
 
-## Contribution
+<!-- ## Contribution
 
 Bigs thanks for all the [contributions](https://github.com/jagi/meteor-astronomy/graphs/contributors) in form of commits and bug reports. Without you it would not be possible to improve Astronomy. Special thanks to:
 - [Faberle](https://github.com/Faberle) - for help with Meteor methods feature
@@ -116,7 +118,7 @@ Bigs thanks for all the [contributions](https://github.com/jagi/meteor-astronomy
 - [talha-asad](https://github.com/talha-asad) - for updating History of changes
 - all other commiters that I forgot to mention
 
-If you have any suggestions or want to write new features or behaviors please contact me, or just create an issue or a pull request. If you found any error please create a reproduction repository and create an issue. Thanks to that it will be easier for me to tell what is wrong. Please, don't use CoffeeScript for creating a reproduction.
+If you have any suggestions or want to write new features or behaviors please contact me, or just create an issue or a pull request. If you found any error please create a reproduction repository and create an issue. Thanks to that it will be easier for me to tell what is wrong. Please, don't use CoffeeScript for creating a reproduction. -->
 
 ## License
 
